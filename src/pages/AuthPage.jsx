@@ -5,8 +5,8 @@ const AuthPage = () => {
   return (
     <div className="flex justify-center">
       <div className="w-full pt-16 max-w-screen-sm">
-        {/* <SendOTPForm /> */}
-        <CheckOTPForm />
+        <SendOTPForm />
+        {/* <CheckOTPForm /> */}
       </div>
     </div>
   );
