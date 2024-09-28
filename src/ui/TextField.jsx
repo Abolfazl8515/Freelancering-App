@@ -1,7 +1,10 @@
-const TextField = ({ label, name, value, onchange }) => {
+const TextField = ({ label, name, value, onchange, placeholder = "" }) => {
   return (
     <div>
-      <label htmlFor="phoneNumber" className="block font-bold text-secondary-800">
+      <label
+        htmlFor="phoneNumber"
+        className="block font-bold text-secondary-800"
+      >
         {label}
       </label>
       <input
@@ -11,6 +14,7 @@ const TextField = ({ label, name, value, onchange }) => {
         value={value}
         onChange={onchange}
         className="textField__input"
+        placeholder={placeholder}
       />
     </div>
   );
