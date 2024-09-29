@@ -1,12 +1,19 @@
 import { useState } from "react";
 import TextField from "../../ui/TextField";
+import RadioInput from "../../ui/RadioInput";
 
 const CompleteProfileForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form className="space-y-8">
+      <form className="space-y-8" onSubmit={submitHandler}>
         <TextField
           type="text"
           label="نام و نام خوانوادگی"
@@ -25,26 +32,22 @@ const CompleteProfileForm = () => {
           direction="ltr"
         />
         <div className="flex justify-center gap-x-4">
-          <div className="flex items-center gap-x-1">
-            <input
-              className="w-4 h-4 accent-primary-900"
-              type="radio"
-              name="role"
-              id="OWNER"
-              value="owner"
-            />
-            <label htmlFor="OWNER">کارفرما</label>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              className="w-4 h-4 accent-primary-900"
-              type="radio"
-              name="role"
-              id="FREELANCER"
-              value="freelancer"
-            />
-            <label htmlFor="FREELANCER">فریلنسر</label>
-          </div>
+          <RadioInput
+            label="کارفرما"
+            id="OWNER"
+            value="OWNER"
+            name="role"
+            checked={role === "OWNER"}
+            onChange={(e) => setRole(e.target.value)}
+          />
+          <RadioInput
+            label="فریلنسر"
+            id="FREELAMCER"
+            value="FREELAMCER"
+            name="role"
+            checked={role === "FREELAMCER"}
+            onChange={(e) => setRole(e.target.value)}
+          />
         </div>
         <button className="btn btn--primary w-full">تایید</button>
       </form>
