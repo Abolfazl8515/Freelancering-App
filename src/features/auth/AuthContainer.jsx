@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SendOTPForm from "./SendOTPForm";
 import CheckOTPForm from "./CheckOTPForm";
 import { useMutation } from "@tanstack/react-query";
@@ -7,9 +7,9 @@ import { sendOtp } from "../../services/authService";
 
 const AuthContainer = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
 
-  const { isPending: isPendingOtp, mutateAsync } = useMutation({
+  const { isPending: isPendingOtp, mutateAsync,data } = useMutation({
     mutationFn: sendOtp,
   });
 
@@ -53,6 +53,7 @@ const AuthContainer = () => {
             phoneNumber={phoneNumber}
             onBack={onBack}
             onResend={sendOtpHandler}
+            onResponse={data}
           />
         );
 

@@ -4,11 +4,11 @@ import OTPInput from "react-otp-input";
 import { checkOtp } from "../../services/authService";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaEdit } from "react-icons/fa";
 
 const RESEND_TIME = 90;
 
-const CheckOTPForm = ({ phoneNumber, onBack, onResend }) => {
+const CheckOTPForm = ({ phoneNumber, onBack, onResend,onResponse }) => {
   const [otp, setOtp] = useState("");
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const [resendTime, setResendTime] = useState(RESEND_TIME);
@@ -54,6 +54,12 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResend }) => {
         <FaArrowRight className="ml-1" />
         <span>بازگشت</span>
       </button>
+      <div className="flex items-center gap-x-2 my-2">
+        <span>{onResponse?.message}</span>
+        <button onClick={onBack}>
+          <FaEdit className="w-5 h-5 text-primary-700" />
+        </button>
+      </div>
       <form className="space-y-6 mt-2" onSubmit={checkOtpHandler}>
         <p className="font-bold text-secondary-700">کد تایید را وارد کنید</p>
         <OTPInput
