@@ -7,7 +7,7 @@ import { sendOtp } from "../../services/authService";
 
 const AuthContainer = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   const { isPending: isPendingOtp, mutateAsync,data } = useMutation({
     mutationFn: sendOtp,

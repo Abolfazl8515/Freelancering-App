@@ -81,9 +81,15 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResend,onResponse }) => {
             <button onClick={(e) => onResendHandler(e)}>ارسال مجدد کد</button>
           )}
         </div>
-        <button type="submit" className="btn btn--primary w-full">
-          تایید
-        </button>
+        {isPending ? (
+          <span className="w-full h-12 flex justify-center items-center bg-primary-500 rounded-lg cursor-not-allowed">
+            <Loading />
+          </span>
+        ) : (
+          <button type="submit" className="btn btn--primary w-full">
+            تایید
+          </button>
+        )}
       </form>
     </div>
   );

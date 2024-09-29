@@ -1,20 +1,28 @@
-const TextField = ({ label, name, value, onchange, placeholder = "" }) => {
+const TextField = ({
+  label,
+  name,
+  value,
+  onchange,
+  placeholder = "",
+  dynamicStyle = null,
+  direction = "rtl",
+  type,
+}) => {
   return (
     <div>
-      <label
-        htmlFor="phoneNumber"
-        className="block font-bold text-secondary-800"
-      >
+      <label htmlFor={name} className="block font-bold text-secondary-700">
         {label}
       </label>
       <input
-        type="number"
+        type={type}
         id={name}
         name={name}
         value={value}
         onChange={onchange}
-        className="textField__input"
+        className={`textField__input ${dynamicStyle}`}
         placeholder={placeholder}
+        dir={direction}
+        autoComplete="true"
       />
     </div>
   );
