@@ -5,10 +5,11 @@ import { checkOtp } from "../../services/authService";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaEdit } from "react-icons/fa";
+import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
-const CheckOTPForm = ({ phoneNumber, onBack, onResend,onResponse }) => {
+const CheckOTPForm = ({ phoneNumber, onBack, onResend, onResponse }) => {
   const [otp, setOtp] = useState("");
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const [resendTime, setResendTime] = useState(RESEND_TIME);
@@ -19,12 +20,14 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResend,onResponse }) => {
     try {
       const { message, user } = await mutateAsync({ phoneNumber, otp });
       toast.success(message);
-      if (!user.isActive) {
-        navigate("/complete-profile");
-      } else {
-        if (user.role === "OWNER") navigate("/owner");
-        if (user.role === "FREELANCER") navigate("/freelancer");
+      if (!user.isActive) return navigate("/complete-profile");
+      if (Number(user.status) !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است", { icon: "👏" });
+        return;
       }
+      if (user.role === "OWNER") navigate("/owner");
+      if (user.role === "FREELANCER") navigate("/freelancer");
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
