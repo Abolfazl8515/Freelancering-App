@@ -7,8 +7,8 @@ const AppLayout = () => {
     <div className="grid h-screen grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
       <Header />
       <Sidebar />
-      <div className="bg-green-500 p-8 overflow-y-auto">
-        <div className="mx-auto max-w-screen-md bg-slate-600">
+      <div className="p-8 overflow-y-auto">
+        <div className="mx-auto max-w-screen-lg">
           <Outlet />
         </div>
       </div>
