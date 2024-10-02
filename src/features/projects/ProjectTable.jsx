@@ -1,7 +1,6 @@
 import Empty from "../../ui/Empty";
 import Loading from "../../ui/Loading";
 import Table from "../../ui/Table";
-import { toPersianNumbersWithComma } from "../../utils/toPersianNum";
 import ProjectRow from "./ProjectRow";
 import useOwnerProjects from "./useOwnerProjects";
 
@@ -9,7 +8,7 @@ const ProjectTable = () => {
   const { isLoading, projects } = useOwnerProjects();
 
   if (isLoading) return <Loading />;
-  if (!projects.length) return <Empty message="شما هنوز پروژه ایی ندارید" />;
+//   if (!projects.length) return <Empty message="شما هنوز پروژه ایی ندارید" />;
 
   return (
     <Table>

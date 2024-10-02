@@ -1,7 +1,7 @@
 const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
 export const toPersianNumbersWithComma = (n) => {
-  const numWithCommas = numberWithCommas(n); // 1000,2343
+  const numWithCommas = numberWithCommas(n);
   const persianNumber = toPersianNumbers(numWithCommas);
   return persianNumber;
 };

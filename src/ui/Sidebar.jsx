@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="row-start-1 row-span-2 p-4">
+    <aside className="row-start-1 row-span-2 p-4">
       <ul className="flex flex-col gap-y-2">
         <li>
           <CustomNavLink to="dashboard">
@@ -18,7 +18,7 @@ const Sidebar = () => {
           </CustomNavLink>
         </li>
       </ul>
-    </div>
+    </aside>
   );
 };
 
