@@ -57,7 +57,7 @@ const ProjectRow = ({ project, index }) => {
               <FaTrashAlt className="w-5 h-5 text-error" />
             </button>
             <Modal
-              open={isEditOpen}
+              open={isDelete}
               title={`حذف ${project.title}`}
               onclose={() => setIsDeleteOpen(false)}
             >
