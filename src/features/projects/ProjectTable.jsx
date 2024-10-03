@@ -8,7 +8,7 @@ const ProjectTable = () => {
   const { isLoading, projects } = useOwnerProjects();
 
   if (isLoading) return <Loading />;
-//   if (!projects.length) return <Empty message="شما هنوز پروژه ایی ندارید" />;
+  if (!projects.length) return <Empty message="شما هنوز پروژه ایی ندارید" />;
 
   return (
     <Table>

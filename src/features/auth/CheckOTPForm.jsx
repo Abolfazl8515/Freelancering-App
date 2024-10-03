@@ -9,7 +9,7 @@ import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
-const CheckOTPForm = ({ phoneNumber, onBack, onResend, onResponse }) => {
+const CheckOTPForm = ({ onBack, onResend, onResponse,phoneNumber }) => {
   const [otp, setOtp] = useState("");
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const [resendTime, setResendTime] = useState(RESEND_TIME);
@@ -17,6 +17,8 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResend, onResponse }) => {
 
   const checkOtpHandler = async (e) => {
     e.preventDefault();
+    console.log(phoneNumber);
+
     try {
       const { message, user } = await mutateAsync({ phoneNumber, otp });
       toast.success(message);

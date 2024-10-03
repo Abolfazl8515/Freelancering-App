@@ -47,7 +47,7 @@ const ProjectRow = ({ project, index }) => {
             <Modal
               open={isEditOpen}
               title={`ادیت ${project.title}`}
-              onclose={() => setIsEditOpen(false)}
+              onClose={() => setIsEditOpen(false)}
             >
               this is modal
             </Modal>
@@ -59,7 +59,7 @@ const ProjectRow = ({ project, index }) => {
             <Modal
               open={isDelete}
               title={`حذف ${project.title}`}
-              onclose={() => setIsDeleteOpen(false)}
+              onClose={() => setIsDeleteOpen(false)}
             >
               <ConfirmDelete
                 resourceName={project.title}

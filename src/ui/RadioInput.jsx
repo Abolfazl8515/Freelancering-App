@@ -1,4 +1,4 @@
-const RadioInput = ({ label, name, id, value, checked,onChange }) => {
+const RadioInput = ({ label, name, id, value, register, watch,validationSchema }) => {
   return (
     <div className="flex items-center gap-x-1">
       <input
@@ -7,8 +7,8 @@ const RadioInput = ({ label, name, id, value, checked,onChange }) => {
         name={name}
         id={id}
         value={value}
-        checked={checked}
-        onChange={onChange}
+        checked={watch(name) === value}
+        {...register(name,validationSchema)}
       />
       <label htmlFor={id}>{label}</label>
     </div>

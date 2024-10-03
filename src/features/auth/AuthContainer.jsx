@@ -4,30 +4,25 @@ import CheckOTPForm from "./CheckOTPForm";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { sendOtp } from "../../services/authService";
+import { useForm } from "react-hook-form";
 
 const AuthContainer = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const { register, handleSubmit, getValues } = useForm();
   const [step, setStep] = useState(1);
 
-  const { isPending: isPendingOtp, mutateAsync,data } = useMutation({
+  const {
+    isPending: isPendingOtp,
+    mutateAsync,
+    data,
+  } = useMutation({
     mutationFn: sendOtp,
   });
 
-  const sendOtpHandler = async (e) => {
-    e.preventDefault();
-
-    if (phoneNumber.trim().length !== 11) {
-      toast.error("شماره موبایل باید یازده رقم باشد");
-      return;
-    } else if (!phoneNumber.startsWith("09")) {
-      toast.error("لطفا یک شماره موبایل معتبر وارد کنید");
-      return;
-    }
-
+  const sendOtpHandler = async (data) => {
     try {
-      const data = await mutateAsync({ phoneNumber });
+      const { message } = await mutateAsync(data);
       setStep(2);
-      toast.success(data.message);
+      toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
@@ -41,19 +36,18 @@ const AuthContainer = () => {
         return (
           <SendOTPForm
             setStep={setStep}
-            phoneNumber={phoneNumber}
-            setPhoneNumber={setPhoneNumber}
-            onSubmit={sendOtpHandler}
+            onSubmit={handleSubmit(sendOtpHandler)}
             isPendingOtp={isPendingOtp}
+            register={register}
           />
         );
       case 2:
         return (
           <CheckOTPForm
-            phoneNumber={phoneNumber}
             onBack={onBack}
-            onResend={sendOtpHandler}
+            onResend={handleSubmit(sendOtpHandler)}
             onResponse={data}
+            phoneNumber={getValues("phoneNumber")}
           />
         );
 
