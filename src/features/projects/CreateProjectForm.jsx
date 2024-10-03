@@ -4,10 +4,13 @@ import Select from "../../ui/Select";
 import { TagsInput } from "react-tag-input-component";
 import { useState } from "react";
 import DatePickerField from "../../ui/DatePickerField";
+import useCategories from "../../hooks/useCategories";
 
 const CreateProjectForm = () => {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
+  const { categories } = useCategories();
+  
   const {
     register,
     formState: { errors },
@@ -64,7 +67,7 @@ const CreateProjectForm = () => {
       />
       <Select
         label="دسته بندی پروژه"
-        options={[]}
+        options={categories}
         name="category"
         register={register}
         require
@@ -74,7 +77,9 @@ const CreateProjectForm = () => {
         errors={errors}
       />
       <div>
-        <label className="mb-2 block font-bold text-secondary-700">تگ ها <span className="text-error">*</span> </label>
+        <label className="mb-2 block font-bold text-secondary-700">
+          تگ ها <span className="text-error">*</span>{" "}
+        </label>
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
       <DatePickerField label="ددلاین پروژه" date={date} setDate={setDate} />
