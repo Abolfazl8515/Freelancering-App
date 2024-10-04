@@ -5,20 +5,35 @@ import { TagsInput } from "react-tag-input-component";
 import { useState } from "react";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
+import useCreateProject from "./useCreateProject";
+import Loading from "../../ui/Loading";
 
-const CreateProjectForm = () => {
+const CreateProjectForm = ({ onClose }) => {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
   const { categories } = useCategories();
-  
+  const { isCreating, createProject } = useCreateProject();
+
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const newProject = {
+      ...data,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+    createProject(newProject, {
+      onSuccess: () => {
+        onClose();
+        reset();
+      },
+      onError: (err) => console.log(err),
+    });
   };
 
   return (
@@ -41,7 +56,7 @@ const CreateProjectForm = () => {
       />
       <TextField
         label="توضیحات پروژه"
-        name="desc"
+        name="description"
         type="text"
         register={register}
         errors={errors}
@@ -55,7 +70,7 @@ const CreateProjectForm = () => {
         }}
       />
       <TextField
-        label="بودجه پروژه"
+        label="بودجه پروژه(تومان)"
         name="budget"
         type="number"
         register={register}
@@ -77,15 +92,17 @@ const CreateProjectForm = () => {
         errors={errors}
       />
       <div>
-        <label className="mb-2 block font-bold text-secondary-700">
-          تگ ها <span className="text-error">*</span>{" "}
-        </label>
+        <label className="mb-2 block font-bold text-secondary-700">تگ ها</label>
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
       <DatePickerField label="ددلاین پروژه" date={date} setDate={setDate} />
-      <button type="submit" className="btn btn--primary w-full">
-        تایید
-      </button>
+      {isCreating ? (
+        <Loading />
+      ) : (
+        <button type="submit" className="btn btn--primary w-full">
+          تایید
+        </button>
+      )}
     </form>
   );
 };

@@ -15,10 +15,12 @@ const ProjectTable = () => {
       <Table.Head>
         <Table.Row>
           <th>#</th>
-          <th>فریلنسر</th>
-          <th>توضیحات</th>
+          <th>عنوان پروژه</th>
+          <th>دسته بندی</th>
+          <th>بودجه(تومان)</th>
           <th>زمان تحویل</th>
-          <th>هزینه</th>
+          <th>تگ ها</th>
+          <th>فریلنسر</th>
           <th>وضعیت</th>
           <th>عملیات</th>
         </Table.Row>
