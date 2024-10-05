@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import Select from "../../ui/Select";
 import { TagsInput } from "react-tag-input-component";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
 import useCreateProject from "./useCreateProject";
@@ -138,7 +138,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
       <DatePickerField label="ددلاین پروژه" date={date} setDate={setDate} />
-      {isCreating ? (
+      {isCreating || isEditing ? (
         <Loading />
       ) : (
         <button type="submit" className="btn btn--primary w-full">
