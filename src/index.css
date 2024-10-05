@@ -68,7 +68,7 @@
   :root {
     &,
     &.light-mode {
-      --background-app-rgb: 250, 250, 250;
+      --background-app-rgb: 255, 255, 255;
       --color-primary-900: 74, 109, 255;
       --color-primary-800: 92, 124, 255;
       --color-primary-700: 110, 138, 255;
