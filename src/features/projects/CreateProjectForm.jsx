@@ -2,24 +2,55 @@ import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import Select from "../../ui/Select";
 import { TagsInput } from "react-tag-input-component";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
 import useCreateProject from "./useCreateProject";
 import Loading from "../../ui/Loading";
+import useEditProject from "./useEditProject";
 
-const CreateProjectForm = ({ onClose }) => {
-  const [tags, setTags] = useState([]);
-  const [date, setDate] = useState(new Date());
+const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
   const { categories } = useCategories();
   const { isCreating, createProject } = useCreateProject();
+  const { isEditing, editProject } = useEditProject();
+  const { _id: projectToEditId } = projectToEdit;
+  const isEditMode = Boolean(projectToEditId);
+  const {
+    title,
+    description,
+    budget,
+    category,
+    deadline,
+    tags: prevTags,
+  } = projectToEdit;
+  let oldValues = {};
+  if (isEditMode) {
+    oldValues = {
+      title,
+      description,
+      budget,
+      category: category._id,
+    };
+  }
+
+  const [tags, setTags] = useState(prevTags || []);
+  const [date, setDate] = useState(new Date(deadline || ""));
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm();
+    setValue,
+  } = useForm({
+    defaultValues: oldValues,
+  });
+
+  useEffect(() => {
+    if (categories.length && isEditMode && category) {
+      setValue("category", category._id);
+    }
+  }, [categories]);
 
   const onSubmit = (data) => {
     const newProject = {
@@ -27,13 +58,24 @@ const CreateProjectForm = ({ onClose }) => {
       deadline: new Date(date).toISOString(),
       tags,
     };
-    createProject(newProject, {
-      onSuccess: () => {
-        onClose();
-        reset();
-      },
-      onError: (err) => console.log(err),
-    });
+    if (isEditMode) {
+      editProject(
+        { id: projectToEditId, newProject },
+        {
+          onSuccess: () => {
+            onClose();
+            reset();
+          },
+        }
+      );
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
 
   return (
@@ -82,10 +124,10 @@ const CreateProjectForm = ({ onClose }) => {
       />
       <Select
         label="دسته بندی پروژه"
-        options={categories}
+        require
         name="category"
         register={register}
-        require
+        options={categories}
         validationSchema={{
           required: "انتخاب دسته بندی ضروری است",
         }}

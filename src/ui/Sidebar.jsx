@@ -33,7 +33,7 @@ const CustomNavLink = ({ children, to }) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? `${navabarClass} bg-primary-300 text-primary-900`
+          ? `${navabarClass} bg-primary-300 text-secondary-0`
           : `${navabarClass} text-secondary-600 hover:bg-primary-300 hover:text-primary-900`
       }
     >

@@ -17,7 +17,6 @@ const Select = ({
         {...register(name, validationSchema)}
         id={name}
       >
-        <option value="">لطفا دسته بندی خود را انتخاب کنید</option>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
             {opt.label}
