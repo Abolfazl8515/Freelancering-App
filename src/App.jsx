@@ -25,7 +25,7 @@ const App = () => {
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<OwnerDashboardPage />} />
           <Route path="projects" element={<ProjectListPage />} />
-          <Route path="project/:id" element={<ProjectPage />} />
+          <Route path="projects/:id" element={<ProjectPage />} />
         </Route>
       </Routes>
     </QueryClientProvider>

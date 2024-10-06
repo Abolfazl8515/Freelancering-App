@@ -23,6 +23,7 @@ const ProjectTable = () => {
           <th>فریلنسر</th>
           <th>وضعیت</th>
           <th>عملیات</th>
+          <th>درخواست ها</th>
         </Table.Row>
       </Table.Head>
       <Table.Body>

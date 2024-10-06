@@ -2,7 +2,7 @@ import Table from "../../ui/Table";
 import { toPersianNumbersWithComma } from "../../utils/toPersianNum";
 import truncateStr from "../../utils/truncateStr";
 import toLocalDateShort from "../../utils/toLocalDateShort";
-import { FaPencil } from "react-icons/fa6";
+import { FaPencil, FaS } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
 import Modal from "../../ui/Modal";
 import { useState } from "react";
@@ -10,6 +10,8 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
 import CreateProjectForm from "./CreateProjectForm";
 import ToggleStatusProject from "./ToggleStatusProject";
+import { HiEye } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const ProjectRow = ({ project, index }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -47,7 +49,10 @@ const ProjectRow = ({ project, index }) => {
               title={`ادیت ${project.title}`}
               onClose={() => setIsEditOpen(false)}
             >
-              <CreateProjectForm onClose={()=>setIsEditOpen(false)} projectToEdit={project} />
+              <CreateProjectForm
+                onClose={() => setIsEditOpen(false)}
+                projectToEdit={project}
+              />
             </Modal>
           </>
           <>
@@ -72,6 +77,11 @@ const ProjectRow = ({ project, index }) => {
             </Modal>
           </>
         </div>
+      </td>
+      <td>
+        <Link to={project._id} className="flex justify-center">
+          <HiEye className="w-5 h-5 text-primary-900 cursor-pointer" />
+        </Link>
       </td>
     </Table.Row>
   );
