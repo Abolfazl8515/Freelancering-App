@@ -9,7 +9,7 @@ import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
-const CheckOTPForm = ({ onBack, onResend, onResponse,phoneNumber }) => {
+const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
   const [otp, setOtp] = useState("");
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const [resendTime, setResendTime] = useState(RESEND_TIME);
@@ -75,7 +75,7 @@ const CheckOTPForm = ({ onBack, onResend, onResponse,phoneNumber }) => {
           renderInput={(props) => <input {...props} />}
           inputType="number"
           containerStyle="w-full flex flex-row-reverse justify-center gap-x-3"
-          inputStyle="w-10 h-10 text-center bg-red-200 rounded-lg text-secondary-800"
+          inputStyle="w-10 h-10 text-center border border-primary-400 rounded-lg text-secondary-800"
           shouldAutoFocus
           skipDefaultStyles
         />
