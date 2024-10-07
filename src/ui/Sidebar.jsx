@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <aside className="row-start-1 row-span-2 p-4 border-l border-secondary-200">
+    <aside className="row-start-1 row-span-2 p-4 border-l border-secondary-200 bg-secondary-0">
       <ul className="flex flex-col gap-y-2">
         <li>
           <CustomNavLink to="dashboard">
@@ -33,8 +33,8 @@ const CustomNavLink = ({ children, to }) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? `${navabarClass} bg-primary-300 text-secondary-0`
-          : `${navabarClass} text-secondary-600 hover:bg-primary-300 hover:text-primary-900`
+          ? `${navabarClass} bg-primary-300 text-secondary-900`
+          : `${navabarClass} text-secondary-900 hover:bg-primary-300 hover:text-primary-900`
       }
     >
       {children}
