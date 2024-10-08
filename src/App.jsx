@@ -5,11 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CompleteProfilePage from "./pages/CompleteProfilePage";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
-import AppLayout from "./ui/AppLayout";
 import OwnerDashboardPage from "./pages/OwnerDashboardPage";
 import ProjectPage from "./pages/ProjectPage";
 import ProjectListPage from "./pages/ProjectListPage";
 import { DarkModeProvier } from "./context/DarkModeProvider";
+import OwnerLayout from "./features/owner/OwnerLayout";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="auth" element={<AuthPage />} />
           <Route path="complete-profile" element={<CompleteProfilePage />} />
-          <Route path="owner" element={<AppLayout />}>
+          <Route path="owner" element={<OwnerLayout />}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path="dashboard" element={<OwnerDashboardPage />} />
             <Route path="projects" element={<ProjectListPage />} />
