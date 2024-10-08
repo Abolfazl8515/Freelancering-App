@@ -24,7 +24,7 @@ const App = () => {
           <Route path="auth" element={<AuthPage />} />
           <Route path="complete-profile" element={<CompleteProfilePage />} />
           <Route path="owner" element={<OwnerLayout />}>
-            <Route index element={<Navigate to="dashboard" />} />
+            <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<OwnerDashboardPage />} />
             <Route path="projects" element={<ProjectListPage />} />
             <Route path="projects/:id" element={<ProjectPage />} />
