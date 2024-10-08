@@ -1,6 +1,6 @@
 const Table = ({ children }) => {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
+    <div className="bg-secondary-0 overflow-x-auto scrollbar">
       <table>{children}</table>
     </div>
   );

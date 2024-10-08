@@ -1,5 +1,6 @@
-import { MdLightMode, MdModeNight } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 import { useDarkMode } from "../context/DarkModeProvider";
+import { IoCloudyNightOutline } from "react-icons/io5";
 
 const ToggleDarkMode = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -18,7 +19,7 @@ const ToggleDarkMode = () => {
         {!isDarkMode ? (
           <MdLightMode className="text-secondary-100" />
         ) : (
-          <MdModeNight className="text-secondary-0" />
+          <IoCloudyNightOutline />
         )}
       </div>
     </li>

@@ -1,5 +1,5 @@
 const Empty = ({ message }) => {
-  return <p>{message}</p>;
+  return <p className="text-secondary-700">{message}</p>;
 };
 
 export default Empty;
