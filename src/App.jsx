@@ -10,6 +10,10 @@ import ProjectPage from "./pages/ProjectPage";
 import ProjectListPage from "./pages/ProjectListPage";
 import { DarkModeProvier } from "./context/DarkModeProvider";
 import OwnerLayout from "./features/owner/OwnerLayout";
+import FreelancerLayout from "./features/freelancer/FreelancerLayout";
+import FrelancerDashboardPage from "./pages/FreelancerDashboardPage";
+import ProposalsPage from "./pages/ProposalsPage";
+import SubmittedProjects from "./pages/SubmittedProjects";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +32,12 @@ const App = () => {
             <Route path="dashboard" element={<OwnerDashboardPage />} />
             <Route path="projects" element={<ProjectListPage />} />
             <Route path="projects/:id" element={<ProjectPage />} />
+          </Route>
+          <Route path="freelancer" element={<FreelancerLayout />}>
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<FrelancerDashboardPage />} />
+            <Route path="projects" element={<SubmittedProjects />} />
+            <Route path="proposals" element={<ProposalsPage />} />
           </Route>
         </Routes>
       </DarkModeProvier>

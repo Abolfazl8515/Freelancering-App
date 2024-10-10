@@ -1,5 +1,5 @@
 import { GrProjects } from "react-icons/gr";
-import Stat from "./Stat";
+import Stat from "../../ui/Stat";
 import { FaFolderOpen, FaWindowRestore } from "react-icons/fa";
 import { FaFolderClosed } from "react-icons/fa6";
 

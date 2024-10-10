@@ -87,7 +87,6 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
         register={register}
         errors={errors}
         required
-        req
         validationSchema={{
           required: "عنوان ضروری است",
           minLength: {
