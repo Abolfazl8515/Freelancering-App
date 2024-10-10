@@ -30,7 +30,7 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
         toast("پروفایل شما در انتظار تایید است", { icon: "👏" });
         return;
       }
-      useNavigateUser(user.role);
+      navigateUser(user.role);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
