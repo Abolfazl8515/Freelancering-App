@@ -12,7 +12,7 @@ const useUser = () => {
 
   const { user } = data || {};
 
-  return { user };
+  return { user,isLoading };
 };
 
 export default useUser;
