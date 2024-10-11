@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaEdit } from "react-icons/fa";
 import Loading from "../../ui/Loading";
-import useNavigateUser from "./useNavigateUser";
 
 const RESEND_TIME = 90;
 
@@ -15,7 +14,6 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const [resendTime, setResendTime] = useState(RESEND_TIME);
   const navigate = useNavigate();
-  const navigateUser = useNavigateUser();
 
   const checkOtpHandler = async (e) => {
     e.preventDefault();
@@ -30,7 +28,9 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
         toast("پروفایل شما در انتظار تایید است", { icon: "👏" });
         return;
       }
-      navigateUser(user.role);
+      if (user.role === "OWNER") navigate("/owner");
+      if (user.role === "FREELANCER") navigate("/freelancer");
+      if (user.role === "ADMIN") navigate("/admin");
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }

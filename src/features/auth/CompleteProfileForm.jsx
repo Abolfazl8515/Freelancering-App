@@ -5,6 +5,7 @@ import { completeProfile } from "../../services/authService";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Loading from "../../ui/Loading";
 
 const CompleteProfileForm = () => {
   const {

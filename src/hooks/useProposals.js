@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProposlasApi } from "../../services/proposalService";
+import { getProposlasApi } from "../services/proposalService";
 
 const useProposals = () => {
   const { data, isLoading } = useQuery({

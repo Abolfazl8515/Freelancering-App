@@ -6,6 +6,7 @@ const useAuthorize = () => {
   const { pathname } = useLocation();
   let isAuthenticated = false;
   let isAuthorized = false;
+  let isVeryfied = false;
 
   const Roles = {
     admin: "ADMIN",
@@ -13,15 +14,17 @@ const useAuthorize = () => {
     owner: "OWNER",
   };
 
+  if (user && user.status === 2) isVeryfied = true;
+
   if (user) isAuthenticated = true;
 
   const desiredRole = pathname.split("/").at(1);
 
-  if (user && desiredRole) {
-    if (user.role === Roles[desiredRole]) isAuthorized = true;
+  if (Object.keys(Roles).includes(desiredRole)) {
+    if (user && user.role === Roles[desiredRole]) isAuthorized = true;
   }
 
-  return { user, isAuthenticated, isAuthorized, isLoading };
+  return { user, isAuthenticated, isAuthorized, isLoading, isVeryfied };
 };
 
 export default useAuthorize;

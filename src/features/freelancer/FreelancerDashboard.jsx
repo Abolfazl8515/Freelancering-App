@@ -1,5 +1,5 @@
 import Loading from "../../ui/Loading";
-import useProposals from "../proposals/useProposals";
+import useProposals from "../../hooks/useProposals";
 import FreelancerHeader from "./FreelancerHeader";
 import FreelancerStats from "./FreelancerStats";
 

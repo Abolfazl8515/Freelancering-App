@@ -15,6 +15,9 @@ import FrelancerDashboardPage from "./pages/FreelancerDashboardPage";
 import ProposalsPage from "./pages/ProposalsPage";
 import SubmittedProjects from "./pages/SubmittedProjects";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import AdminLayout from "./features/admin/AdminLayout";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
+import UsersPage from "./pages/usersPage";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +54,20 @@ const App = () => {
           >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<FrelancerDashboardPage />} />
+            <Route path="projects" element={<SubmittedProjects />} />
+            <Route path="proposals" element={<ProposalsPage />} />
+          </Route>
+          <Route
+            path="admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboardPage />} />
+            <Route path="users" element={<UsersPage />} />
             <Route path="projects" element={<SubmittedProjects />} />
             <Route path="proposals" element={<ProposalsPage />} />
           </Route>

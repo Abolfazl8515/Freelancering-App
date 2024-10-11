@@ -4,7 +4,7 @@ import useCreateProposal from "./useCreateProposal";
 import Loading from "../../ui/Loading";
 import { useState } from "react";
 
-const CreateProposal = ({ projectId, onClose, setIsAlreadySent }) => {
+const CreateProposal = ({ projectId, onClose }) => {
   const {
     register,
     handleSubmit,
@@ -20,7 +20,6 @@ const CreateProposal = ({ projectId, onClose, setIsAlreadySent }) => {
     createProposal(newProposal, {
       onSuccess: () => {
         onClose();
-        setIsAlreadySent(true);
       },
     });
   };
