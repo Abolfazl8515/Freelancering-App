@@ -4,7 +4,7 @@ import useMoveBack from "../hooks/useMoveBack";
 const NotFound = () => {
   const moveBack = useMoveBack();
   return (
-    <div className="container xl:max-w-screen-xl">
+    <div className="container xl:max-w-screen-xl bg-secondary-0">
       <div className="flex justify-center">
         <div className="w-full pt-24 sm:max-w-sm">
           <p className="text-9xl text-center text-secondary-700">404</p>
