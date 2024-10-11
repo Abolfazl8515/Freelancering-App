@@ -6,12 +6,12 @@ import toLocalDateShort from "../../../utils/toLocalDateShort";
 import { useState } from "react";
 import Modal from "../../../ui/Modal";
 import CreateProposal from "../../proposals/CreateProposal";
-import useUser from "../../auth/useUser";
 import { FaPencil } from "react-icons/fa6";
-import useRemoveProject from "../../projects/useRemoveProject";
 import CreateProjectForm from "../../projects/CreateProjectForm";
 import ConfirmDelete from "../../../ui/ConfirmDelete";
 import { FaTrashAlt } from "react-icons/fa";
+import useUser from "../../../hooks/useUser";
+import useRemoveProject from "../../../hooks/useRemoveProject";
 
 const statusStyle = {
   OPEN: {

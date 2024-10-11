@@ -7,11 +7,11 @@ import { FaTrashAlt } from "react-icons/fa";
 import Modal from "../../ui/Modal";
 import { useState } from "react";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-import useRemoveProject from "./useRemoveProject";
 import CreateProjectForm from "./CreateProjectForm";
 import ToggleStatusProject from "./ToggleStatusProject";
 import { HiEye } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import useRemoveProject from "../../hooks/useRemoveProject";
 
 const ProjectRow = ({ project, index }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);

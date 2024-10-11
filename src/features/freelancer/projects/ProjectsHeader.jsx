@@ -2,10 +2,10 @@ import { useState } from "react";
 import useCategories from "../../../hooks/useCategories";
 import FilterBtns from "../../../ui/FilterBtns";
 import FilterDropDown from "../../../ui/FilterDropDown";
-import useUser from "../../auth/useUser";
 import CreateProjectForm from "../../projects/CreateProjectForm";
 import Modal from "../../../ui/Modal";
 import { HiOutlinePlus } from "react-icons/hi";
+import useUser from "../../../hooks/useUser";
 
 const sortedOptions = [
   { value: "latest", label: "مرتب سازی (جدیدترین)" },

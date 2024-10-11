@@ -1,14 +1,10 @@
-import { useState } from "react";
-import { BiLogOut } from "react-icons/bi";
 import { FaUserCog } from "react-icons/fa";
-import { MdLightMode, MdModeNight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logout from "../features/auth/Logout";
-import useUser from "../features/auth/useUser";
 import ToggleDarkMode from "./ToggleDarkMode";
+import useUser from "../hooks/useUser";
 
 const HeaderMenu = () => {
-  const [theme, setTheme] = useState(true);
   const { user } = useUser();
   return (
     <ul className="flex items-center gap-x-4">
@@ -17,9 +13,9 @@ const HeaderMenu = () => {
           <FaUserCog className="w-5 h-5" />
         </Link>
       </li>
-    
-        <ToggleDarkMode/>
-  
+
+      <ToggleDarkMode />
+
       <li>
         {user ? (
           <Logout />

@@ -5,9 +5,9 @@ import { TagsInput } from "react-tag-input-component";
 import { useEffect, useState } from "react";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
-import useCreateProject from "./useCreateProject";
 import Loading from "../../ui/Loading";
-import useEditProject from "./useEditProject";
+import useCreateProject from "../../hooks/useCreateProject";
+import useEditProject from "../../hooks/useEditProject";
 
 const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
   const { categories } = useCategories();

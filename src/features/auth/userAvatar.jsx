@@ -1,4 +1,4 @@
-import useUser from "./useUser";
+import useUser from "../../hooks/useUser";
 
 const UserAvatar = () => {
   const { user } = useUser();

@@ -1,5 +1,5 @@
 import UserAvatar from "../features/auth/userAvatar";
-import useUser from "../features/auth/useUser";
+import useUser from "../hooks/useUser";
 import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
