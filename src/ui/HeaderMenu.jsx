@@ -2,10 +2,10 @@ import { FaUserCog } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Logout from "../features/auth/Logout";
 import ToggleDarkMode from "./ToggleDarkMode";
-import useUser from "../hooks/useUser";
+import useAuthorize from "../features/auth/useAuthorize";
 
 const HeaderMenu = () => {
-  const { user } = useUser();
+  const { user } = useAuthorize();
   return (
     <ul className="flex items-center gap-x-4">
       <li className="cursor-pointer text-secondary-700 hover:text-secondary-600">
