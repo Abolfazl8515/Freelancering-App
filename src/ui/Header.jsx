@@ -7,7 +7,7 @@ const Header = () => {
   const { isLoading } = useUser();
 
   return (
-    <header className="bg-secondary-0 py-4 px-8">
+    <header className="bg-secondary-0 py-4 px-8 sticky top-0">
       <div
         className={`container xl:max-w-screen-lg mt-2 flex items-center justify-around
       ${isLoading && "blur-sm opacity-50"}
