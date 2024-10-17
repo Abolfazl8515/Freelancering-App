@@ -109,7 +109,7 @@ const Advanteges = ({ isDarkMode }) => {
 
 const AboutUs = ({ isDarkMode }) => {
   return (
-    <div className="text-center space-y-10 mt-20">
+    <div className="text-center space-y-10 mt-20" id="aboutUs">
       <div className="relative">
         <h3
           className={`w-full font-black -translate-x-1/2 left-1/2 ${
@@ -146,7 +146,10 @@ const AboutUs = ({ isDarkMode }) => {
 
 const ContactUs = () => {
   return (
-    <div className="w-2/3 mx-auto mt-10 flex items-center justify-around p-4 rounded-t-xl border border-secondary-200">
+    <div
+      className="w-2/3 mx-auto mt-10 flex items-center justify-around p-4 rounded-t-xl border border-secondary-200"
+      id="contactUs"
+    >
       <div>
         <h4 className="text-secondary-700 text-2xl">تماس با ما</h4>
       </div>

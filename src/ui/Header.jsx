@@ -15,13 +15,33 @@ const Header = () => {
       >
         <ul className="flex items-center justify-center gap-x-4">
           <li>
-            <Link to="/" className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg">صفحه اصلی</Link>
+            <Link to="/" className="text-2xl font-bold text-secondary-700">
+              کارینو😎
+            </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg">درباره ما</Link>
+            <Link
+              to="/"
+              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            >
+              صفحه اصلی
+            </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg">تماس با ما</Link>
+            <a
+              href="/#aboutUs"
+              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            >
+              درباره ما
+            </a>
+          </li>
+          <li>
+            <a
+              href="/#contactUs"
+              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            >
+              تماس با ما
+            </a>
           </li>
         </ul>
         <div className="flex items-center gap-x-4">

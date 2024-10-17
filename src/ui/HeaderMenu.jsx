@@ -4,15 +4,23 @@ import Logout from "../features/auth/Logout";
 import ToggleDarkMode from "./ToggleDarkMode";
 import useAuthorize from "../features/auth/useAuthorize";
 
+const roles = {
+  FREELANCER: { path: "freelancer" },
+  ADMIN: { path: "admin" },
+  OWNER: { path: "owner" },
+};
+
 const HeaderMenu = () => {
   const { user } = useAuthorize();
   return (
     <ul className="flex items-center gap-x-4">
-      <li className="cursor-pointer text-secondary-700 hover:text-secondary-600">
-        <Link>
-          <FaUserCog className="w-5 h-5" />
-        </Link>
-      </li>
+      {user && (
+        <li className="cursor-pointer text-secondary-700 hover:text-secondary-600">
+          <Link to={`/${roles[user.role].path}`}>
+            <FaUserCog className="w-5 h-5" />
+          </Link>
+        </li>
+      )}
 
       <ToggleDarkMode />
 
