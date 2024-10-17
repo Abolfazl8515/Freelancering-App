@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { MdDeveloperMode } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { useDarkMode } from "../context/DarkModeProvider";
 
 const roles = {
   FREELANCER: { path: "freelancer" },
@@ -16,6 +17,7 @@ const roles = {
 const HomePage = () => {
   const { isVeryfied, isAuthenticated, user } = useAuthorize();
   const [userPath, setUserPath] = useState("");
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     if (isVeryfied && isAuthenticated) setUserPath(roles[user.role].path);
@@ -29,13 +31,13 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="sticky top-0 mx-auto max-w-7xl">
+      <div className="sticky top-0 mx-auto max-w-7xl z-20">
         <Header />
       </div>
       <div className="container xl:max-w-screen-xl">
         <Landing userPath={userPath} />
-        <Advanteges />
-        <AboutUs />
+        <Advanteges isDarkMode={isDarkMode} />
+        <AboutUs isDarkMode={isDarkMode} />
         <ContactUs />
       </div>
     </>
@@ -66,16 +68,24 @@ const Landing = ({ userPath }) => {
   );
 };
 
-const Advanteges = () => {
+const Advanteges = ({ isDarkMode }) => {
   return (
     <div className="w-3/4 text-center space-y-10 mx-auto">
-      <div className="relative">
-        <h3 className="w-full font-black -translate-x-1/2 left-1/2 text-secondary-700 absolute -bottom-1 text-2xl">
+      <div className={`relative`}>
+        <h3
+          className={`w-full font-black -translate-x-1/2 left-1/2 ${
+            isDarkMode && "border-b-2 border-primary-200 mb-8"
+          } text-secondary-700 absolute -bottom-1 text-2xl`}
+        >
           چه کارهایی میتوانید در کارینو انجام دهید؟
         </h3>
-        <span className="w-full max-w-[400px] h-3 flex justify-center mx-auto rounded-xl bg-primary-200"></span>
+        <span
+          className={`w-full max-w-[400px] h-3 ${
+            isDarkMode ? "hidden" : "flex"
+          } justify-center mx-auto rounded-xl bg-primary-200`}
+        ></span>
       </div>
-      <div className="flex justify-evenly items-start">
+      <div className={`flex justify-evenly items-start`}>
         <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col group">
           <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
           <h4 className="text-secondary-700">توسعه نرم افزار و آی تی</h4>
@@ -97,14 +107,22 @@ const Advanteges = () => {
   );
 };
 
-const AboutUs = () => {
+const AboutUs = ({ isDarkMode }) => {
   return (
     <div className="text-center space-y-10 mt-20">
       <div className="relative">
-        <h3 className="w-full font-black -translate-x-1/2 left-1/2 text-secondary-700 absolute -bottom-1 text-2xl">
+        <h3
+          className={`w-full font-black -translate-x-1/2 left-1/2 ${
+            isDarkMode && "max-w-[200px] border-b-2 border-primary-200 mb-4"
+          } text-secondary-700 absolute -bottom-1 text-2xl`}
+        >
           درباره ما
         </h3>
-        <span className="w-full max-w-[200px] h-3 flex justify-center mx-auto rounded-xl bg-primary-200"></span>
+        <span
+          className={`w-full max-w-[200px] h-3 justify-center mx-auto ${
+            isDarkMode ? "hidden" : "flex"
+          } rounded-xl bg-primary-200`}
+        ></span>
       </div>
       <div className="space-y-10">
         <p className="text-secondary-700 text-justify mx-auto max-w-[800px]">
