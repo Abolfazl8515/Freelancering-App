@@ -4,6 +4,8 @@ import useAuthorize from "../features/auth/useAuthorize";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { MdDeveloperMode } from "react-icons/md";
+import { FaInstagram } from "react-icons/fa";
+import { BiLogoGmail } from "react-icons/bi";
 
 const roles = {
   FREELANCER: { path: "freelancer" },
@@ -26,12 +28,17 @@ const HomePage = () => {
   }, [user]);
 
   return (
-    <div className="container xl:max-w-screen-xl">
-      <Header />
-      <Landing userPath={userPath} />
-      <Advanteges />
-      <AboutUs />
-    </div>
+    <>
+      <div className="sticky top-0 mx-auto max-w-7xl">
+        <Header />
+      </div>
+      <div className="container xl:max-w-screen-xl">
+        <Landing userPath={userPath} />
+        <Advanteges />
+        <AboutUs />
+        <ContactUs />
+      </div>
+    </>
   );
 };
 
@@ -61,7 +68,7 @@ const Landing = ({ userPath }) => {
 
 const Advanteges = () => {
   return (
-    <div className="text-center space-y-10">
+    <div className="w-3/4 text-center space-y-10 mx-auto">
       <div className="relative">
         <h3 className="w-full font-black -translate-x-1/2 left-1/2 text-secondary-700 absolute -bottom-1 text-2xl">
           چه کارهایی میتوانید در کارینو انجام دهید؟
@@ -69,21 +76,21 @@ const Advanteges = () => {
         <span className="w-full max-w-[400px] h-3 flex justify-center mx-auto rounded-xl bg-primary-200"></span>
       </div>
       <div className="flex justify-evenly items-start">
-        <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col">
-          <MdDeveloperMode className="w-7 h-7 mb-3 text-secondary-500" />
-          <h4>توسعه نرم افزار و آی تی</h4>
+        <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col group">
+          <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
+          <h4 className="text-secondary-700">توسعه نرم افزار و آی تی</h4>
         </div>
         <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col">
-          <MdDeveloperMode className="w-7 h-7 mb-3 text-secondary-500" />
-          <h4>تولید محتوا و ترجمه</h4>
+          <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
+          <h4 className="text-secondary-700">تولید محتوا و ترجمه</h4>
         </div>
         <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col">
-          <MdDeveloperMode className="w-7 h-7 mb-3 text-secondary-500" />
-          <h4>طراحی و خلاقیت</h4>
+          <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
+          <h4 className="text-secondary-700">طراحی و خلاقیت</h4>
         </div>
         <div className="p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col">
-          <MdDeveloperMode className="w-7 h-7 mb-3 text-secondary-500" />
-          <h4>مهندسی و معماری</h4>
+          <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
+          <h4 className="text-secondary-700">مهندسی و معماری</h4>
         </div>
       </div>
     </div>
@@ -114,6 +121,40 @@ const AboutUs = () => {
           اعتماد متقابل را تضمین می‌کند. هدف ما در کارینو، تسهیل فرایند همکاری
           آنلاین و کمک به رشد و توسعه کسب‌و‌کارها و فریلنسرهاست.
         </p>
+      </div>
+    </div>
+  );
+};
+
+const ContactUs = () => {
+  return (
+    <div className="w-2/3 mx-auto mt-10 flex items-center justify-around p-4 rounded-t-xl border border-secondary-200">
+      <div>
+        <h4 className="text-secondary-700 text-2xl">تماس با ما</h4>
+      </div>
+      <div className="w-1/2 flex items-center justify-center gap-x-5">
+        <a
+          href="mailto:boorbooryabolfazl85@gmail.com"
+          className="group p-3 border border-secondary-200 hover:border-primary-400 hover:text-primary-700 rounded-2xl flex items-center"
+        >
+          <span className="invisible inline-block text-[0] group-hover:text-base group-hover:visible transition-all duration-300">
+            پیج اینستا کارینو
+          </span>
+          <span>
+            <FaInstagram className="w-10 h-10 text-secondary-700 group-hover:text-primary-700" />
+          </span>
+        </a>
+        <a
+          href="mailto:boorbooryabolfazl85@gmail.com"
+          className="group p-3 border border-secondary-200 hover:border-primary-400 hover:text-primary-700 rounded-2xl flex items-center"
+        >
+          <span className="invisible inline-block text-[0] group-hover:text-base group-hover:visible transition-all duration-300">
+            ایمیل پشتیبانی
+          </span>
+          <span>
+            <BiLogoGmail className="w-10 h-10 text-secondary-700 group-hover:text-primary-700" />
+          </span>
+        </a>
       </div>
     </div>
   );
