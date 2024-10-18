@@ -1,10 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserAvatar from "../features/auth/userAvatar";
 import useUser from "../hooks/useUser";
 import HeaderMenu from "./HeaderMenu";
+import { useEffect } from "react";
 
 const Header = () => {
   const { isLoading } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const header = document.querySelector("header");
+    const linkElements = header.querySelectorAll("a");
+    linkElements.forEach((item) => {
+      if (item.href.includes("#")) {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigate(`/${e.target.href.split("/").at(-1)}`);
+          window.scrollTo({ top: document.documentElement.scrollHeight });
+        });
+      }
+    });
+  }, []);
 
   return (
     <header className="bg-secondary-0 py-4 px-8 sticky top-0 z-20 backdrop-blur-3xl bg-opacity-25 shadow-md shadow-secondary-200">
