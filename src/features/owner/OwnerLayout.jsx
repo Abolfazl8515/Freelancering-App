@@ -4,7 +4,6 @@ import CustomNavLink from "../../ui/CustomNavLink";
 import Sidebar from "../../ui/Sidebar";
 import useDevice from "../../hooks/useDevice";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
 
 const OwnerLayout = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);

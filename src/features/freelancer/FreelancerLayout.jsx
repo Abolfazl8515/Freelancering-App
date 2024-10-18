@@ -5,7 +5,6 @@ import Sidebar from "../../ui/Sidebar";
 import useDevice from "../../hooks/useDevice";
 import MobileHeader from "../../ui/MobileHeader";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
 
 const FreelancerLayout = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);

@@ -5,8 +5,6 @@ import Sidebar from "../../ui/Sidebar";
 import useDevice from "../../hooks/useDevice";
 import { useState } from "react";
 import MobileHeader from "../../ui/MobileHeader";
-import { Link } from "react-router-dom";
-import { FaTimes } from "react-icons/fa";
 
 const AdminLayout = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
