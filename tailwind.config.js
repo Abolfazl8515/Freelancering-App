@@ -51,6 +51,18 @@ export default {
       fontFamily: {
         sans: ["Vazir", ...fontFamily.sans],
       },
+      keyframes: {
+        openMenu: {
+          "0%": { width: "0" },
+          "100%": { width: "75%" },
+        },
+      },
+      animation: {
+        "open-menu": "openMenu 0.2s ease-out",
+      },
+      transitionProperty: {
+        width: "width",
+      },
     },
   },
   plugins: [],

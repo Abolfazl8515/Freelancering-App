@@ -1,26 +1,58 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UserAvatar from "../features/auth/userAvatar";
 import useUser from "../hooks/useUser";
 import HeaderMenu from "./HeaderMenu";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import useOutsideClick from "../hooks/useOutsideClick";
+import { FaTimes } from "react-icons/fa";
+import CustomNavLink from "../ui/CustomNavLink";
+import MobileHeader from "./MobileHeader";
+import useDevice from "../hooks/useDevice";
 
 const Header = () => {
   const { isLoading } = useUser();
-  const navigate = useNavigate();
+  const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
+  const { isMobileDevice } = useDevice("(max-width: 768px)");
 
-  useEffect(() => {
-    const header = document.querySelector("header");
-    const linkElements = header.querySelectorAll("a");
-    linkElements.forEach((item) => {
-      if (item.href.includes("#")) {
-        item.addEventListener("click", (e) => {
-          e.preventDefault();
-          navigate(`/${e.target.href.split("/").at(-1)}`);
-          window.scrollTo({ top: document.documentElement.scrollHeight });
-        });
-      }
-    });
-  }, []);
+  if (isMobileDevice)
+    return (
+      <MobileHeader
+        isShowMobileMenu={isShowMobileMenu}
+        setIsShowMobileMenu={setIsShowMobileMenu}
+      >
+        <div className="w-full flex items-center justify-between p-2">
+          <h3 className="text-base text-secondary-700">
+            <Link to="/" className="text-2xl font-bold text-secondary-700">
+              کارینو😎
+            </Link>
+          </h3>
+          <button onClick={() => toggleMenu()}>
+            <FaTimes className="w-5 h-5 text-secondary-600" />
+          </button>
+        </div>
+        <ul className="flex mt-5 gap-y-5 justify-center flex-col gap-x-4">
+          <CustomNavLink
+            to="/"
+            className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+          >
+            صفحه اصلی
+          </CustomNavLink>
+          <CustomNavLink
+            to="/aboutUs"
+            className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+          >
+            درباره ما
+          </CustomNavLink>
+          <CustomNavLink
+            to="/contactUs"
+            className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+          >
+            تماس با ما
+          </CustomNavLink>
+        </ul>
+      </MobileHeader>
+    );
 
   return (
     <header className="bg-secondary-0 py-4 px-8 sticky top-0 z-20 backdrop-blur-3xl bg-opacity-25 shadow-md shadow-secondary-200">
@@ -36,28 +68,40 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/"
-              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+              className={({ isActive }) =>
+                isActive
+                  ? "p-2 text-primary-900 text-lg transition-all duration-300 rounded-lg"
+                  : "p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+              }
             >
               صفحه اصلی
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="/#aboutUs"
-              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            <NavLink
+              to="/aboutUs"
+              className={({ isActive }) =>
+                isActive
+                  ? "p-2 text-primary-900 text-lg transition-all duration-300 rounded-lg"
+                  : "p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+              }
             >
               درباره ما
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="/#contactUs"
-              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            <NavLink
+              to="/contactUs"
+              className={({ isActive }) =>
+                isActive
+                  ? "p-2 text-primary-900 text-lg transition-all duration-300 rounded-lg"
+                  : "p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+              }
             >
               تماس با ما
-            </a>
+            </NavLink>
           </li>
         </ul>
         <div className="flex items-center gap-x-4">

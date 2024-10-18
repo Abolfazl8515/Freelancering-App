@@ -18,6 +18,8 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
 import UsersPage from "./pages/usersPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,8 @@ const App = () => {
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/aboutUs" element={<AboutUsPage />} />
+          <Route path="/contactUs" element={<ContactUsPage />} />
           <Route path="auth" element={<AuthPage />} />
           <Route path="complete-profile" element={<CompleteProfilePage />} />
           <Route
