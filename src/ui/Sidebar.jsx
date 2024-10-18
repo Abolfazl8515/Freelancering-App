@@ -9,7 +9,7 @@ const roles = {
 const Sidebar = ({ children }) => {
   const { user } = useUser();
   return (
-    <aside className="md:relative h-full flex flex-col justify-between md:row-start-1 md:row-span-2 p-4 bg-secondary-0">
+    <aside className="md:relative h-full flex flex-col justify-around md:row-start-1 md:row-span-2 p-4 bg-secondary-0">
       <ul className="flex flex-col gap-y-2 pt-10">{children}</ul>
       <div className="w-5/6 flex items-center md:absolute md:bottom-7 gap-x-5">
         <div className="w-10 h-10 bg-secondary-300 flex justify-center items-center rounded-full ring-2 ring-secondary-200 relative">
