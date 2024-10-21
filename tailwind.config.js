@@ -63,6 +63,9 @@ export default {
       transitionProperty: {
         width: "width",
       },
+      screens: {
+        mobile: "450px",
+      },
     },
   },
   plugins: [],

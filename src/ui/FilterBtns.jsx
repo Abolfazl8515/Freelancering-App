@@ -10,9 +10,9 @@ const FilterBtns = ({ filterField, options }) => {
   };
 
   return (
-    <div className="flex items-center gap-x-2 text-xs mt-2">
+    <div className="mobile:w-auto w-full flex items-center gap-x-2 text-xs mt-2">
       <span className="text-secondary-800">وضعیت</span>
-      <div className="flex items-center gap-x-2 p-1 border border-secondary-100 bg-secondary-0 rounded-lg">
+      <div className="mobile:w-auto w-full flex items-center gap-x-2 p-1 border border-secondary-100 bg-secondary-0 rounded-lg">
         {options.map(({ value, label }) => {
           const isActive = value === currentFilter;
           return (
@@ -20,7 +20,7 @@ const FilterBtns = ({ filterField, options }) => {
               key={value}
               disabled={isActive}
               onClick={() => handleClick(value)}
-              className={`whitespace-nowrap rounded-md px-4 py-1 font-bold transition-all duration-300
+              className={`whitespace-nowrap mobile:w-auto w-full rounded-md px-4 py-1 font-bold transition-all duration-300
              ${
                isActive
                  ? "!bg-primary-900 text-white"

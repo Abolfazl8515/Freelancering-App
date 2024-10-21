@@ -2,14 +2,20 @@ import { Link, NavLink } from "react-router-dom";
 import UserAvatar from "../features/auth/userAvatar";
 import useUser from "../hooks/useUser";
 import HeaderMenu from "./HeaderMenu";
-import {  useState } from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import CustomNavLink from "../ui/CustomNavLink";
 import MobileHeader from "./MobileHeader";
 import useDevice from "../hooks/useDevice";
 
+const roles = {
+  FREELANCER: { path: "freelancer" },
+  ADMIN: { path: "admin" },
+  OWNER: { path: "owner" },
+};
+
 const Header = () => {
-  const { isLoading } = useUser();
+  const { isLoading, user } = useUser();
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const { isMobileDevice } = useDevice("(max-width: 768px)");
 
@@ -19,16 +25,6 @@ const Header = () => {
         isShowMobileMenu={isShowMobileMenu}
         setIsShowMobileMenu={setIsShowMobileMenu}
       >
-        <div className="w-full flex items-center justify-between p-2">
-          <h3 className="text-base text-secondary-700">
-            <Link to="/" className="text-2xl font-bold text-secondary-700">
-              کارینو😎
-            </Link>
-          </h3>
-          <button onClick={() => toggleMenu()}>
-            <FaTimes className="w-5 h-5 text-secondary-600" />
-          </button>
-        </div>
         <ul className="flex mt-5 gap-y-5 justify-center flex-col gap-x-4">
           <CustomNavLink
             to="/"
@@ -47,6 +43,12 @@ const Header = () => {
             className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
           >
             تماس با ما
+          </CustomNavLink>
+          <CustomNavLink
+            to={`/${roles[user.role].path}`}
+            className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+          >
+            ورود به پنل کاربری
           </CustomNavLink>
         </ul>
       </MobileHeader>

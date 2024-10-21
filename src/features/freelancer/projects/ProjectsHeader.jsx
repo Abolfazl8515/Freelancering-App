@@ -32,9 +32,9 @@ const ProjectHeader = () => {
   const { transformedCategories } = useCategories();
   const [open,setOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center mb-8">
+    <div className="flex justify-between mobile:flex-row flex-col items-center mb-8">
       {user.role === "ADMIN" && (
-        <>
+        <div className="mobile:w-auto w-full flex justify-between items-center lg:gap-x-3 gap-y-3 lg:flex-row flex-col-reverse">
           <Modal
             title="اضافه کردن پروژه جدید"
             open={open}
@@ -44,15 +44,15 @@ const ProjectHeader = () => {
           </Modal>
           <button
             onClick={() => setOpen(true)}
-            className="btn btn--primary flex items-center gap-x-2  px-3"
+            className="btn btn--primary flex items-center justify-center gap-x-2  px-3 mobile:w-auto !w-full"
           >
             <HiOutlinePlus />
             <span>اضافه کردن پروژه</span>
           </button>
-        </>
+          <h2 className="lg:text-lg text-xl font-bold text-secondary-800">لیست پروژه ها</h2>
+        </div>
       )}
-      <h2 className="text-lg font-bold text-secondary-800">لیست پروژه ها</h2>
-      <div className="flex items-center gap-x-2">
+      <div className="mobile:w-1/2 w-full flex items-end lg:gap-x-2 lg:flex-row flex-col">
         <FilterBtns filterField="status" options={statusOptions} />
         <FilterDropDown
           options={[
