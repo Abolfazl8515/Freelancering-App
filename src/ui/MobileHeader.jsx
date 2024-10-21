@@ -7,41 +7,50 @@ import useOutsideClick from "../hooks/useOutsideClick";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
-const MobileHeader = ({ children,isShowMobileMenu,setIsShowMobileMenu }) => {
+const MobileHeader = ({ children, isShowMobileMenu, setIsShowMobileMenu }) => {
   const { isLoading } = useUser();
-    const backdropRef = useRef();
-    const ref = useOutsideClick(() => {
-      if (isShowMobileMenu) toggleMenu();
-    });
+  const backdropRef = useRef();
+  const ref = useOutsideClick(() => {
+    if (isShowMobileMenu) toggleMenu();
+  });
 
+  const toggleMenu = () => {
+    const menu = ref.current;
+    const backDrop = backdropRef.current;
 
-    const toggleMenu = () => {
-      const menu = ref.current;
-      const backDrop = backdropRef.current;
-
-      if (isShowMobileMenu) {
-        menu.style.width = "75%";
-        setTimeout(() => {
-          menu.style.width = "0";
-          menu.style.opacity = "0";
-        }, 5);
-
-        setTimeout(() => {
-          menu.classList.add("hidden");
-          backDrop.classList.add("hidden");
-        }, 300);
-      } else {
-        menu.classList.remove("hidden");
-        backDrop.classList.remove("hidden");
+    if (isShowMobileMenu) {
+      menu.style.width = "75%";
+      setTimeout(() => {
         menu.style.width = "0";
-        setTimeout(() => {
-          menu.style.width = "75%";
-          menu.style.opacity = "1";
-        }, 5);
-      }
+        menu.style.opacity = "0";
+      }, 5);
 
-      setIsShowMobileMenu((prev) => !prev);
-    };
+      setTimeout(() => {
+        menu.classList.add("hidden");
+        backDrop.classList.add("hidden");
+      }, 300);
+    } else {
+      menu.classList.remove("hidden");
+      backDrop.classList.remove("hidden");
+      menu.style.width = "0";
+      setTimeout(() => {
+        menu.style.width = "75%";
+        menu.style.opacity = "1";
+      }, 5);
+    }
+
+    setIsShowMobileMenu((prev) => !prev);
+  };
+
+  const closeMenuHandler = (e) => {
+    const element = e.target;
+    const isLink =
+      element.tagName === "A" ||
+      element.parentElement.tagName === "A" ||
+      element.parentElement.parentElement.tagName === "A";
+
+    if (isLink) toggleMenu();
+  };
 
   return (
     <header className="bg-secondary-0 py-4 px-4 sticky top-0 z-20 backdrop-blur-3xl bg-opacity-25 shadow-md shadow-secondary-200">
@@ -57,6 +66,7 @@ const MobileHeader = ({ children,isShowMobileMenu,setIsShowMobileMenu }) => {
         >
           <div
             ref={ref}
+            onClick={closeMenuHandler}
             className={`w-3/4 h-screen fixed hidden top-0 right-0
         rounded-lg bg-secondary-0 p-4 shadow-lg overflow-hidden animate-open-menu transition-all duration-300 ease-in-out`}
           >
