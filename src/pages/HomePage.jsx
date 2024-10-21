@@ -45,7 +45,7 @@ export default HomePage;
 const Landing = ({ userPath }) => {
   return (
     <div className="flex items-center flex-col-reverse md:flex-row md:justify-around py-16">
-      <div className="w-2/3 md:w-1/3 md:mt-0 mt-5 mx-auto md:mx-0 text-center">
+      <div className="w-2/3 md:w-1/3 md:mt-0 mt-5 mx-auto md:mx-0 md:text-justify text-center">
         <h1 className="text-secondary-700 md:font-black font-extrabold text-3xl md:text-5xl">
           با کارینو پروژه بگیر یا پروژه خودتو ثبت کن
         </h1>

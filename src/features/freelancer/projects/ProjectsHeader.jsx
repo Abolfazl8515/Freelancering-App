@@ -44,7 +44,7 @@ const ProjectHeader = () => {
           </Modal>
           <button
             onClick={() => setOpen(true)}
-            className="btn btn--primary flex items-center justify-center gap-x-2  px-3 mobile:w-auto !w-full"
+            className="btn btn--primary flex items-center justify-center gap-x-2  px-3 w-full lg:w-auto"
           >
             <HiOutlinePlus />
             <span>اضافه کردن پروژه</span>
@@ -52,7 +52,7 @@ const ProjectHeader = () => {
           <h2 className="lg:text-lg text-xl font-bold text-secondary-800">لیست پروژه ها</h2>
         </div>
       )}
-      <div className="mobile:w-1/2 w-full flex items-end lg:gap-x-2 lg:flex-row flex-col">
+      <div className="mobile:w-1/2 lg:w-auto flex items-end lg:gap-x-2 lg:flex-row flex-col">
         <FilterBtns filterField="status" options={statusOptions} />
         <FilterDropDown
           options={[
