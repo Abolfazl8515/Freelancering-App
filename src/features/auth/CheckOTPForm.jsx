@@ -61,7 +61,7 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
         <span>بازگشت</span>
       </button>
       <div className="flex items-center gap-x-2 my-2">
-        <span>{onResponse?.message}</span>
+        <span className="text-secondary-700">{onResponse?.message}</span>
         <button onClick={onBack}>
           <FaEdit className="w-5 h-5 text-primary-700" />
         </button>
@@ -76,7 +76,7 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
           renderInput={(props) => <input {...props} />}
           inputType="number"
           containerStyle="w-full flex flex-row-reverse justify-center gap-x-3"
-          inputStyle="w-10 h-10 text-center border border-primary-400 rounded-lg text-secondary-800"
+          inputStyle="w-10 h-10 text-center border border-primary-400 rounded-lg"
           shouldAutoFocus
           skipDefaultStyles
         />

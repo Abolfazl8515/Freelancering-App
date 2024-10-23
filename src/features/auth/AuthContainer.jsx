@@ -13,6 +13,20 @@ const AuthContainer = () => {
   const { register, handleSubmit, getValues } = useForm();
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
+  const stepperData = [
+    {
+      id: 1,
+      title: "شماره موبایل",
+    },
+    {
+      id: 2,
+      title: "وارد کردن کد تایید ",
+    },
+    {
+      id: 3,
+      title: "تکمیل اطلاعات",
+    },
+  ];
 
   const {
     isPending: isPendingOtp,
@@ -64,7 +78,34 @@ const AuthContainer = () => {
     }
   };
 
-  return renderStep();
+  return (
+    <div className="w-full flex flex-col sm:max-w-sm">
+      <div className="flex justify-center mb-5">
+        {stepperData.map((item) => (
+          <div className="flex justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
+              <div
+                className={`size-6 rounded-full ${
+                  item.id === step ? "bg-primary-300" : "bg-secondary-200"
+                } justify-center flex flex-col items-center`}
+              >
+                <p className="text-secondary-700">{item.id}</p>
+              </div>
+              <span className="text-xs text-secondary-700 mt-2">{item.title}</span>
+            </div>
+            {item.id !== 3 && (
+              <div
+                className={`w-16 h-px -mt-4 ${
+                  item.id === step ? "bg-primary-200" : "bg-secondary-200"
+                }`}
+              ></div>
+            )}
+          </div>
+        ))}
+      </div>
+      {renderStep()}
+    </div>
+  );
 };
 
 export default AuthContainer;
