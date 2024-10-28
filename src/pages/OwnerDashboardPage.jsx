@@ -1,4 +1,4 @@
-import OwnerDashboard from "../features/owner/ownerDashboard";
+import OwnerDashboard from "../features/owner/OwnerDashboard";
 
 const OwnerDashboardPage = () => {
   return <OwnerDashboard />;

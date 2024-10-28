@@ -1,4 +1,4 @@
-import UsersTable from "../features/admin/users/usersTable";
+import UsersTable from "../features/admin/users/UsersTable";
 
 const UsersPage = () => {
   return <UsersTable />;

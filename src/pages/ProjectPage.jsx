@@ -1,4 +1,4 @@
-import ProjectHeader from "../features/project/projectHeader";
+import ProjectHeader from "../features/project/ProjectHeader";
 import ProposalsTable from "../features/project/ProposalsTable";
 import useProject from "../features/project/useProject";
 import Loading from "../ui/Loading";

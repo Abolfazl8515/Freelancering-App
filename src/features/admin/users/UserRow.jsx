@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toPersianNumbers } from "../../../utils/toPersianNum";
 import Modal from "../../../ui/Modal";
 import Table from "../../../ui/Table";
-import ChangeUserStatus from "./changeUserStatus";
+import ChangeUserStatus from "./ChangeUserStatus";
 
 const userStyle = [
   {

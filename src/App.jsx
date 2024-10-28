@@ -17,7 +17,7 @@ import SubmittedProjects from "./pages/SubmittedProjects";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
-import UsersPage from "./pages/usersPage";
+import UsersPage from "./pages/UsersPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
 
