@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { MdDeveloperMode } from "react-icons/md";
 import { useDarkMode } from "../context/DarkModeProvider";
+import Footer from "../ui/Footer";
 
 const roles = {
   FREELANCER: { path: "freelancer" },
@@ -35,6 +36,7 @@ const HomePage = () => {
       <div className="container xl:max-w-screen-xl">
         <Landing userPath={userPath} />
         <Advanteges isDarkMode={isDarkMode} />
+        <Footer />
       </div>
     </>
   );
@@ -81,7 +83,9 @@ const Advanteges = ({ isDarkMode }) => {
           } justify-center mx-auto rounded-xl bg-primary-200`}
         ></span>
       </div>
-      <div className={`flex flex-col md:flex-row md:justify-evenly items-center md:items-start`}>
+      <div
+        className={`flex flex-col md:flex-row md:justify-evenly items-center md:items-start`}
+      >
         <div className="min-w-10 w-4/5 p-5 border border-secondary-200 rounded-xl flex items-center justify-center flex-col group">
           <MdDeveloperMode className="size-7 mb-3 text-secondary-500" />
           <h4 className="text-secondary-700">توسعه نرم افزار و آی تی</h4>

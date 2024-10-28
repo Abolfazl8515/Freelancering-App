@@ -1,17 +1,15 @@
 import { BiLogoGmail } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
 
 const ContactUsPage = () => {
   return (
-    <>
-      <div className="sticky top-0 mx-auto max-w-7xl z-20">
+    <div className="flex flex-col min-h-screen">
+      <div className="sticky top-0 mx-auto max-w-7xl z-20 w-full">
         <Header />
       </div>
-      <div
-        className="w-2/3 mx-auto mt-10 flex flex-col md:flex-row items-center md:justify-around p-4 rounded-t-xl border border-secondary-200"
-        id="contactUs"
-      >
+      <div className="w-2/3 flex-1 mx-auto mt-10 flex flex-col md:flex-row items-center md:justify-around p-4">
         <div>
           <h4 className="text-secondary-700 text-2xl">تماس با ما</h4>
         </div>
@@ -40,7 +38,10 @@ const ContactUsPage = () => {
           </a>
         </div>
       </div>
-    </>
+      <div>
+        <Footer />
+      </div>
+    </div>
   );
 };
 

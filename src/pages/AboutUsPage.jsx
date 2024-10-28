@@ -1,14 +1,15 @@
 import { useDarkMode } from "../context/DarkModeProvider";
+import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 
 const AboutUsPage = () => {
   const { isDarkMode } = useDarkMode();
   return (
-    <>
-      <div className="sticky top-0 mx-auto max-w-7xl z-20">
+    <div className="flex flex-col min-h-screen">
+      <div className="sticky top-0 mx-auto max-w-7xl z-20 w-full">
         <Header />
       </div>
-      <div className="text-center space-y-10 mt-20" id="aboutUs">
+      <div className="text-center space-y-10 mt-20 flex-1">
         <div className="relative">
           <h3
             className={`w-full font-black -translate-x-1/2 left-1/2 ${
@@ -41,7 +42,10 @@ const AboutUsPage = () => {
           </p>
         </div>
       </div>
-    </>
+      <div>
+        <Footer />
+      </div>
+    </div>
   );
 };
 
