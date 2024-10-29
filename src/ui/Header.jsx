@@ -44,12 +44,14 @@ const Header = () => {
           >
             تماس با ما
           </CustomNavLink>
-          <CustomNavLink
-            to={`/${roles[user.role].path}`}
-            className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
-          >
-            ورود به پنل کاربری
-          </CustomNavLink>
+          {user && (
+            <CustomNavLink
+              to={`/${roles[user?.role].path}`}
+              className="p-2 hover:text-primary-900 text-secondary-800 text-lg transition-all duration-300 rounded-lg"
+            >
+              ورود به پنل کاربری
+            </CustomNavLink>
+          )}
         </ul>
       </MobileHeader>
     );
