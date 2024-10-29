@@ -23,7 +23,7 @@ const CompleteProfileForm = () => {
   const { user } = useUser();
 
   useEffect(() => {
-    if (user) navigate("/", { replace: true });
+    if (user.isActive) navigate("/", { replace: true });
   }, [user, navigate]);
 
   const submitHandler = async (data) => {
