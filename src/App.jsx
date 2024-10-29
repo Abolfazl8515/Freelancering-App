@@ -23,6 +23,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
 import FreelancerProfilePage from "./pages/FreelancerProfilePage";
 import OwnerProfilePage from "./pages/OwnerProfilePage";
+import LoginAdminPage from "./pages/LoginAdminPage";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/contactUs" element={<ContactUsPage />} />
           <Route path="auth" element={<AuthPage />} />
+          <Route path="adminlogin" element={<LoginAdminPage />} />
           <Route path="complete-profile" element={<CompleteProfilePage />} />
           <Route
             path="owner"

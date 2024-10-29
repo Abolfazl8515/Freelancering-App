@@ -1,5 +1,9 @@
 import http from "./httpService";
 
+export const loginAdmin = (data) => {
+  return http.post("/user/loginadmin", data).then(({ data }) => data.data);
+};
+
 export const sendOtp = (data) => {
   return http.post("/user/get-otp", data).then(({ data }) => data.data);
 };

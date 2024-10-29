@@ -13,12 +13,12 @@ const useAuthorize = () => {
     freelancer: "FREELANCER",
     owner: "OWNER",
   };
+  const desiredRole = pathname.split("/").at(1);
 
+  if (desiredRole === "adminlogin") return;
   if (user && user.status === 2) isVeryfied = true;
 
   if (user) isAuthenticated = true;
-
-  const desiredRole = pathname.split("/").at(1);
 
   if (Object.keys(Roles).includes(desiredRole)) {
     if (user && user.role === Roles[desiredRole]) isAuthorized = true;
