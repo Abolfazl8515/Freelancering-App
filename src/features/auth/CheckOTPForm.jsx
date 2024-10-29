@@ -75,7 +75,7 @@ const CheckOTPForm = ({ onBack, onResend, onResponse, phoneNumber }) => {
           renderSeparator={<span>-</span>}
           renderInput={(props) => <input {...props} />}
           inputType="number"
-          containerStyle="w-full flex flex-row-reverse justify-center gap-x-3"
+          containerStyle="w-full flex flex-row-reverse justify-center gap-x-1"
           inputStyle="w-10 h-10 text-center border border-primary-400 rounded-lg"
           shouldAutoFocus
           skipDefaultStyles

@@ -6,8 +6,6 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../../ui/Loading";
-import useUser from "../../hooks/useUser";
-import { useEffect } from "react";
 
 const CompleteProfileForm = () => {
   const {
@@ -20,17 +18,12 @@ const CompleteProfileForm = () => {
     mutationFn: completeProfile,
   });
   const navigate = useNavigate();
-  const { user } = useUser();
-
-  useEffect(() => {
-    if (user.isActive) navigate("/", { replace: true });
-  }, [user, navigate]);
 
   const submitHandler = async (data) => {
     try {
       const { message, user } = await mutateAsync(data);
       toast.success(message);
-      if (Number(user.status) !== 2) {
+      if (user.status !== 2) {
         navigate("/");
         toast("پروفایل شما در انتظار تایید است", { icon: "👏" });
         return;
