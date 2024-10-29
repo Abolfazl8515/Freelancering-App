@@ -26,6 +26,10 @@ const FreelancerLayout = () => {
             <HiCollection />
             <span>درخواست ها</span>
           </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
+          </CustomNavLink>
         </Sidebar>
       </AppLayout>
     );
@@ -47,6 +51,10 @@ const FreelancerLayout = () => {
           <CustomNavLink to="proposals">
             <HiCollection />
             <span>درخواست ها</span>
+          </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
           </CustomNavLink>
         </Sidebar>
       </MobileHeader>

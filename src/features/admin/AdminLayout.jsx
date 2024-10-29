@@ -30,6 +30,10 @@ const AdminLayout = () => {
             <HiCollection />
             <span>کاربران</span>
           </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
+          </CustomNavLink>
         </Sidebar>
       </AppLayout>
     );
@@ -55,6 +59,10 @@ const AdminLayout = () => {
           <CustomNavLink to="users">
             <HiCollection />
             <span>کاربران</span>
+          </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
           </CustomNavLink>
         </Sidebar>
       </MobileHeader>

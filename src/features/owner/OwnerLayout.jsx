@@ -4,6 +4,7 @@ import CustomNavLink from "../../ui/CustomNavLink";
 import Sidebar from "../../ui/Sidebar";
 import useDevice from "../../hooks/useDevice";
 import { useState } from "react";
+import MobileHeader from "../../ui/MobileHeader";
 
 const OwnerLayout = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
@@ -20,6 +21,10 @@ const OwnerLayout = () => {
           <CustomNavLink to="projects">
             <HiCollection />
             <span>پروژها</span>
+          </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
           </CustomNavLink>
         </Sidebar>
       </AppLayout>
@@ -38,6 +43,10 @@ const OwnerLayout = () => {
           <CustomNavLink to="projects">
             <HiCollection />
             <span>پروژها</span>
+          </CustomNavLink>
+          <CustomNavLink to="profile">
+            <HiCollection />
+            <span>حساب کاربری</span>
           </CustomNavLink>
         </Sidebar>
       </MobileHeader>

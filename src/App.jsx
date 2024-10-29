@@ -20,6 +20,9 @@ import AdminDashboardPage from "./pages/AdminDashboardPage";
 import UsersPage from "./pages/UsersPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import AdminProfilePage from "./pages/AdminProfilePage";
+import FreelancerProfilePage from "./pages/FreelancerProfilePage";
+import OwnerProfilePage from "./pages/OwnerProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +50,7 @@ const App = () => {
             <Route path="dashboard" element={<OwnerDashboardPage />} />
             <Route path="projects" element={<ProjectListPage />} />
             <Route path="projects/:id" element={<ProjectPage />} />
+            <Route path="profile" element={<OwnerProfilePage />} />
           </Route>
           <Route
             path="freelancer"
@@ -60,6 +64,7 @@ const App = () => {
             <Route path="dashboard" element={<FrelancerDashboardPage />} />
             <Route path="projects" element={<SubmittedProjects />} />
             <Route path="proposals" element={<ProposalsPage />} />
+            <Route path="profile" element={<FreelancerProfilePage />} />
           </Route>
           <Route
             path="admin"
@@ -74,6 +79,7 @@ const App = () => {
             <Route path="users" element={<UsersPage />} />
             <Route path="projects" element={<SubmittedProjects />} />
             <Route path="proposals" element={<ProposalsPage />} />
+            <Route path="profile" element={<AdminProfilePage />} />
           </Route>
         </Routes>
       </DarkModeProvier>

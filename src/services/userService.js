@@ -9,3 +9,7 @@ export const changeUserStatusApi = ({ id, status }) => {
     .patch(`/admin/user/verify/${id}`, status)
     .then(({ data }) => data.data);
 };
+
+export const updateUserProfile = (data) => {
+  return http.patch("/user/update", data).then(({ data }) => data.data);
+};
