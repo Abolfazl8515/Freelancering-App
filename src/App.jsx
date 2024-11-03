@@ -24,6 +24,7 @@ import AdminProfilePage from "./pages/AdminProfilePage";
 import FreelancerProfilePage from "./pages/FreelancerProfilePage";
 import OwnerProfilePage from "./pages/OwnerProfilePage";
 import LoginAdminPage from "./pages/LoginAdminPage";
+import CategoriesPage from "./pages/CategoriesPage";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +83,7 @@ const App = () => {
             <Route path="projects" element={<SubmittedProjects />} />
             <Route path="proposals" element={<ProposalsPage />} />
             <Route path="profile" element={<AdminProfilePage />} />
+            <Route path="categories" element={<CategoriesPage />} />
           </Route>
         </Routes>
       </DarkModeProvier>

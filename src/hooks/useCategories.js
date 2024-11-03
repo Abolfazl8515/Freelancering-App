@@ -8,7 +8,6 @@ const useCategories = () => {
   });
 
   const { categories: rawCategories = [] } = data || {};
-  
 
   const categories = rawCategories.map((item) => ({
     label: item.title,
@@ -20,7 +19,7 @@ const useCategories = () => {
     value: item.englishTitle,
   }));
 
-  return { categories, transformedCategories, isLoading };
+  return { categories, transformedCategories, isLoading, rawCategories };
 };
 
 export default useCategories;

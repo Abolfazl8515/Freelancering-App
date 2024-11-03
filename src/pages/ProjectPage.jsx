@@ -5,7 +5,6 @@ import Loading from "../ui/Loading";
 
 const ProjectPage = () => {
   const { isLoading, project } = useProject();
-  console.log(project);
 
   if (isLoading) return <Loading />;
 

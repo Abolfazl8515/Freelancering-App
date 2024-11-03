@@ -34,6 +34,10 @@ const AdminLayout = () => {
             <HiCollection />
             <span>حساب کاربری</span>
           </CustomNavLink>
+          <CustomNavLink to="categories">
+            <HiCollection />
+            <span>دسته بندی ها</span>
+          </CustomNavLink>
         </Sidebar>
       </AppLayout>
     );
@@ -63,6 +67,10 @@ const AdminLayout = () => {
           <CustomNavLink to="profile">
             <HiCollection />
             <span>حساب کاربری</span>
+          </CustomNavLink>
+          <CustomNavLink to="categories">
+            <HiCollection />
+            <span>دسته بندی ها</span>
           </CustomNavLink>
         </Sidebar>
       </MobileHeader>
