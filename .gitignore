@@ -8,14 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 liara.json
 node_modules
-dist
 dist-ssr
 *.local
 
 # Editor directories and files
 .vscode/*
 .vscode
-install.bat
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -24,3 +22,6 @@ install.bat
 *.njsproj
 *.sln
 *.sw?
+Dockerfile
+nginx.conf
+.dockerignore
