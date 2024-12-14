@@ -1,0 +1,5 @@
+A freelancing website that owners and freelancers can contact together.
+This project has three panels:
+ Owner panel: owners can login in their account and create projects, edit, or remove them also, they can see how many freelancers requested for their projects and accept or reject them, and in addition, they can see their own account information and edit it.
+Freelancer panel: Freelancers can login in their panel and see a list of all projects that owners has created and send a request to each project also, they can edit their account information.
+Admin panel: admin has got access to all information of website such as users information: every user who login in this website must wait till the admin confirm their account and then start working, categories: owners can put their projects to different categories which were created by admin, projects: admin like owners can see all projects and create, remove or edit them, proposals: admin like owner can see all proposals which freelancers have sent. Moreover, like other panels admin can edit its own account information.
