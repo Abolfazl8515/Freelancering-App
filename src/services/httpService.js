@@ -27,8 +27,8 @@ axiosConfig.interceptors.response.use(
       } catch (err) {
         return Promise.reject(err);
       }
-      return Promise.reject(err);
     }
+    return Promise.reject(err);
   }
 );
 
